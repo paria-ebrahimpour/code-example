@@ -1,0 +1,223 @@
+$classes: (
+  "display": (
+    "prefix": "d",
+    "props": (
+      block,
+      inline-block,
+      inline-flex,
+      inline-grid,
+      list-item,
+      none,
+      table,
+      inline,
+      flex,
+      grid,
+    ),
+  ),
+  "text-align": (
+    "prefix": "text",
+    "props": (
+      left,
+      right,
+      center,
+      revert,
+    ),
+  ),
+  "justify-content": (
+    "prefix": "justify",
+    "props": (
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "align-items": (
+    "prefix": "align-items",
+    "props": (
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "justify-items": (
+    "prefix": "justify-items",
+    "props": (
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "align-content": (
+    "prefix": "align",
+    "props": (
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "align-self": (
+    "prefix": "align-self",
+    "props": (
+      "center": center,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "flex-basis": (
+    "prefix": "f-basis",
+    "props": (
+      auto,
+      initial,
+      inherit,
+    ),
+  ),
+  "flex-direction": (
+    "prefix": "flex",
+    "props": (
+      row,
+      row-reverse,
+      column,
+      column-reverse,
+      initial,
+      inherit,
+    ),
+  ),
+  "flex-grow": (
+    "prefix": "f-grow",
+    "props": (
+      initial,
+      inherit,
+      0,
+      1,
+      2,
+      3,
+    ),
+  ),
+  "flex-shrink": (
+    "prefix": "f-shrink",
+    "props": (
+      initial,
+      inherit,
+      0,
+      1,
+      2,
+      3,
+    ),
+  ),
+  "flex-wrap": (
+    "prefix": "f-wrap",
+    "props": (
+      nowrap,
+      wrap,
+      wrap-reverse,
+      initial,
+      inherit,
+    ),
+  ),
+  "position": (
+    "prefix": "pos",
+    "props": (
+      absolute,
+      relative,
+      fixed,
+      static,
+      sticky,
+      initial,
+      inherit,
+      unset,
+    ),
+  ),
+  "flex": (
+    "prefix": "flex",
+    "props": (
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+    ),
+  ),
+  "order": (
+    "prefix": "order",
+    "props": (
+      1,
+      2,
+      3,
+      4,
+      5,
+    ),
+  ),
+  "border-radius": (
+    "prefix": "radius",
+    "props": (
+      "none": 0,
+      "sm": 5px,
+      "lg": 10px,
+    ),
+  ),
+  "width": (
+    "prefix": "w",
+    "props": (
+      "50": 50%,
+      "100": 100%,
+      "max-content": max-content,
+    ),
+  ),
+  "min-width": (
+    "prefix": "min-w",
+    "props": (
+      "50": 50%,
+      "100": 100%,
+    ),
+  ),
+  "height": (
+    "prefix": "h",
+    "props": (
+      "50": 50%,
+      "100": 100%,
+    ),
+  ),
+  "overflow": (
+    "prefix": "overflow",
+    "props": (
+      hidden,
+      scroll,
+      auto,
+    ),
+  ),
+  "overflow-x": (
+    "prefix": "overflowX",
+    "props": (
+      hidden,
+      scroll,
+      auto,
+    ),
+  ),
+);
+
+@each $keyClass, $ValueClass in $classes {
+  @each $label, $value in map-get($ValueClass, "props") {
+    .#{map-get($ValueClass, "prefix")}-#{$label} {
+      @each $keyProperty in $keyClass {
+        @if $value {
+          #{$keyProperty}: $value;
+        } @else {
+          #{$keyProperty}: $label;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import "./spacing";
+@import "./atomic";
+
+.ellipsis-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

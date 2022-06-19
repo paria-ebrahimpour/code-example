@@ -1,0 +1,26 @@
+:root {
+  --app-height: 100vh;
+}
+
+#app {
+  min-height: var(--app-height);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  display: flex;
+  flex-direction: column;
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    &--full-screen {
+      > .Container-root {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        > div {
+          flex: 1;
+        }
+      }
+    }
+  }
+}
